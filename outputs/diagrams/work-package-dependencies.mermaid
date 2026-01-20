@@ -1,0 +1,67 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#22c55e'}}}%%
+
+%% PROJECT TRACKER - WORK PACKAGE DEPENDENCIES
+%% Shows how work packages flow into each other
+
+flowchart LR
+    subgraph P1["📍 Phase 1: Foundation (Weeks 1-12)"]
+        WP1[WP1: Site Selection]
+        WP3[WP3: Financial Model]
+        WP9[WP9: Technology]
+    end
+    
+    subgraph P2["📐 Phase 2: Planning (Weeks 8-20)"]
+        WP2[WP2: Legal & Regulatory]
+        WP4[WP4: Infrastructure]
+        WP5[WP5: Operations]
+        WP8[WP8: Safety]
+    end
+    
+    subgraph P3["👨‍👩‍👧‍👦 Phase 3: Community (Weeks 12-24)"]
+        WP6[WP6: Education]
+        WP7[WP7: Community]
+    end
+    
+    WP10[WP10: Integration<br/>Continuous]
+    
+    WP1 -->|Location candidates| WP2
+    WP1 -->|Terrain data| WP4
+    WP1 -->|Access routes| WP5
+    WP1 -->|Hazard data| WP8
+    WP1 -->|Coordinates| WP9
+    
+    WP3 -->|Pricing| WP7
+    
+    WP2 -->|Compliance reqs| WP6
+    WP2 -->|Waivers| WP7
+    
+    WP4 -->|System specs| WP5
+    WP4 -->|Safety features| WP8
+    
+    WP10 -.->|Coordination| P1
+    WP10 -.->|Coordination| P2
+    WP10 -.->|Coordination| P3
+    
+    G1{{"🚦 Gate 1<br/>Site Selection<br/>Week 12"}}
+    G2{{"🚦 Gate 2<br/>Design Complete<br/>Week 20"}}
+    G3{{"🚦 Gate 3<br/>Launch Ready<br/>Week 24"}}
+    
+    P1 --> G1
+    G1 --> P2
+    P2 --> G2
+    G2 --> P3
+    P3 --> G3
+
+    style WP1 fill:#3B82F6,color:#fff
+    style WP2 fill:#8B5CF6,color:#fff
+    style WP3 fill:#10B981,color:#fff
+    style WP4 fill:#F59E0B,color:#fff
+    style WP5 fill:#EF4444,color:#fff
+    style WP6 fill:#EC4899,color:#fff
+    style WP7 fill:#06B6D4,color:#fff
+    style WP8 fill:#DC2626,color:#fff
+    style WP9 fill:#6366F1,color:#fff
+    style WP10 fill:#1F2937,color:#fff
+    style G1 fill:#22c55e,color:#fff
+    style G2 fill:#3b82f6,color:#fff
+    style G3 fill:#8b5cf6,color:#fff

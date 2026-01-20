@@ -1,0 +1,60 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#22c55e', 'primaryTextColor': '#fff', 'primaryBorderColor': '#16a34a', 'lineColor': '#64748b', 'secondaryColor': '#3b82f6', 'tertiaryColor': '#f1f5f9'}}}%%
+
+%% PROJECT TRACKER - SYSTEM ARCHITECTURE
+%% Use this diagram to show the overall system structure
+
+graph TB
+    subgraph HUMAN["👥 HUMAN LEADERSHIP TEAM"]
+        MC[Mission Commander]
+        GIS[GIS Lead]
+        LEG[Legal Lead]
+        FIN[Finance Lead]
+        ENG[Engineer]
+        OPS[Ops Lead]
+        EDU[Education Dir]
+        COM[Community Lead]
+        SAF[Safety Officer]
+        TECH[Tech Lead]
+    end
+    
+    subgraph AGENTS["🤖 AI AGENT LAYER"]
+        A1[mission-control]
+        A2[gis-scout]
+        A3[legal-navigator]
+        A4[finance-analyst]
+        A5[infrastructure-engineer]
+        A6[logistics-planner]
+        A7[education-curator]
+        A8[community-builder]
+        A9[safety-officer]
+        A10[tech-ops]
+    end
+    
+    subgraph TOOLS["🔧 RESEARCH TOOLS"]
+        T1[Web Search]
+        T2[Perplexity Deep Research]
+        T3[Multi-Tier Research]
+        T4[Apple Notes]
+    end
+    
+    MC <--> A1
+    GIS <--> A2
+    LEG <--> A3
+    FIN <--> A4
+    ENG <--> A5
+    OPS <--> A6
+    EDU <--> A7
+    COM <--> A8
+    SAF <--> A9
+    TECH <--> A10
+    
+    A1 --> T1 & T2 & T3
+    A2 --> T1 & T2 & T3
+    A3 --> T1 & T2 & T3
+    A4 --> T1 & T2
+    A5 --> T1 & T2
+    A6 --> T1 & T2
+    A7 --> T1 & T2
+    A8 --> T1 & T2
+    A9 --> T1 & T2
+    A10 --> T1 & T2

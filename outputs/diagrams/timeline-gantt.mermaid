@@ -1,0 +1,29 @@
+%%{init: {'theme': 'base'}}%%
+
+%% PROJECT TRACKER - TIMELINE GANTT CHART
+%% Shows work package timing and phases
+
+gantt
+    title Project Tracker - Work Package Timeline
+    dateFormat  YYYY-MM-DD
+    
+    section Foundation Phase
+    WP1: Site Selection & GIS           :wp1, 2026-02-01, 84d
+    WP3: Financial Model                :wp3, 2026-02-01, 84d
+    WP9: Technology & Comms             :wp9, 2026-02-01, 70d
+    Site Selection Gate                 :milestone, gate1, after wp1, 0d
+    
+    section Planning Phase
+    WP2: Legal & Regulatory             :wp2, 2026-02-22, 112d
+    WP4: Infrastructure Design          :wp4, 2026-03-22, 98d
+    WP5: Operations & Logistics         :wp5, 2026-03-22, 98d
+    WP8: Safety & Medical               :wp8, 2026-03-22, 84d
+    Design Complete Gate                :milestone, gate2, 2026-06-28, 0d
+    
+    section Community Phase
+    WP6: Education & Science            :wp6, 2026-04-19, 112d
+    WP7: Community Design               :wp7, 2026-04-19, 98d
+    Launch Ready Gate                   :milestone, gate3, 2026-08-09, 0d
+    
+    section Integration
+    WP10: Mission Control               :wp10, 2026-02-01, 190d
