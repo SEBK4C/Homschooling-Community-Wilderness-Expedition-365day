@@ -28,9 +28,25 @@ const Navigation = ({ activeSection, onNavigate }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-forest-500 to-forest-700 rounded-full flex items-center justify-center">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                {/* Waldorf-style hand-drawn tree - organic, flowing curves */}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M12 4c-3.5 0.3-6 2.8-5.5 6.2 0.3 2.2 2 3.8 4 4.5M12 4c3.5 0.3 6 2.8 5.5 6.2-0.3 2.2-2 3.8-4 4.5"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeWidth={2}
+                  d="M12 14.5c0.2 2.5-0.1 4.5 0 6.5"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeWidth={1.5}
+                  d="M9 21c1-0.8 2-1 3-1s2 0.2 3 1"
+                />
               </svg>
             </div>
             <span className="text-xl font-bold text-white tracking-tight">Wild Year</span>
@@ -48,7 +64,7 @@ const Navigation = ({ activeSection, onNavigate }) => {
                 }}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeSection === item.id
-                    ? 'bg-emerald-600 text-white'
+                    ? 'bg-forest-600 text-white'
                     : 'text-stone-300 hover:text-white hover:bg-white/10'
                 }`}
               >
@@ -111,14 +127,14 @@ const HeroSection = ({ onNavigate }) => (
 
     {/* Content */}
     <div className="relative z-10 max-w-5xl mx-auto px-4 text-center pt-20">
-      <div className="inline-flex items-center gap-2 bg-emerald-900/50 backdrop-blur-sm border border-emerald-700/50 rounded-full px-4 py-2 mb-8">
-        <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-        <span className="text-emerald-300 text-sm font-medium">Now Planning: 2027 Expedition</span>
+      <div className="inline-flex items-center gap-2 bg-forest-900/50 backdrop-blur-sm border border-forest-700/50 rounded-full px-4 py-2 mb-8">
+        <span className="w-2 h-2 bg-forest-400 rounded-full animate-pulse"></span>
+        <span className="text-forest-300 text-sm font-medium">Now Planning: 2027 Expedition</span>
       </div>
 
       <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
         One Year in the
-        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-amber-400">
+        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-forest-400 to-golden-400">
           Wilderness Together
         </span>
       </h1>
@@ -131,7 +147,7 @@ const HeroSection = ({ onNavigate }) => (
       <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
         <button
           onClick={() => onNavigate('join')}
-          className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-semibold rounded-full transition-all duration-200 shadow-lg shadow-emerald-900/50 hover:shadow-xl hover:shadow-emerald-900/50 hover:-translate-y-0.5"
+          className="px-8 py-4 bg-gradient-to-r from-forest-600 to-forest-700 hover:from-forest-500 hover:to-forest-600 text-white font-semibold rounded-full transition-all duration-200 shadow-lg shadow-forest-900/50 hover:shadow-xl hover:shadow-forest-900/50 hover:-translate-y-0.5"
         >
           Join the Expedition
         </button>
@@ -153,7 +169,7 @@ const HeroSection = ({ onNavigate }) => (
         ].map((stat, i) => (
           <div key={i} className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
             <div className="text-3xl md:text-4xl font-bold text-white">{stat.value}</div>
-            <div className="text-emerald-400 font-medium">{stat.label}</div>
+            <div className="text-forest-400 font-medium">{stat.label}</div>
             <div className="text-stone-500 text-sm">{stat.sub}</div>
           </div>
         ))}
@@ -175,7 +191,7 @@ const MissionSection = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Section Header */}
       <div className="text-center mb-16">
-        <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wider">Our Mission</span>
+        <span className="text-forest-600 font-semibold text-sm uppercase tracking-wider">Our Mission</span>
         <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mt-2 mb-4">
           Raising Children in Nature
         </h2>
@@ -186,17 +202,17 @@ const MissionSection = () => (
       </div>
 
       {/* Featured Quote */}
-      <div className="bg-gradient-to-br from-emerald-900 to-stone-900 rounded-3xl p-8 md:p-12 mb-16 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
+      <div className="bg-gradient-to-br from-forest-900 to-stone-900 rounded-3xl p-8 md:p-12 mb-16 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-forest-500/10 rounded-full blur-3xl"></div>
         <div className="relative">
-          <svg className="w-12 h-12 text-emerald-500/50 mb-4" fill="currentColor" viewBox="0 0 24 24">
+          <svg className="w-12 h-12 text-forest-500/50 mb-4" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
           </svg>
           <p className="text-2xl md:text-3xl text-white font-light leading-relaxed mb-6">
             What if 20 families could spend a year living in the wilderness together—learning,
             working remotely, conducting citizen science, and building genuine community?
           </p>
-          <p className="text-emerald-400 font-medium">
+          <p className="text-forest-400 font-medium">
             — The Wild Year Vision
           </p>
         </div>
@@ -234,7 +250,7 @@ const MissionSection = () => (
           },
         ].map((pillar, i) => (
           <div key={i} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-stone-100">
-            <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 mb-6">
+            <div className="w-14 h-14 bg-forest-100 rounded-xl flex items-center justify-center text-forest-600 mb-6">
               {pillar.icon}
             </div>
             <h3 className="text-xl font-bold text-stone-900 mb-3">{pillar.title}</h3>
@@ -255,13 +271,13 @@ const CoHousingSection = () => (
         <div className="relative">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <img
-              src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1600&auto=format&fit=crop"
-              alt="Scandinavian community living"
+              src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=1600&auto=format&fit=crop"
+              alt="Nordic forest cabin community"
               className="w-full h-[500px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6">
-              <span className="inline-block bg-amber-500 text-stone-900 text-sm font-bold px-3 py-1 rounded-full mb-2">
+              <span className="inline-block bg-golden-500 text-stone-900 text-sm font-bold px-3 py-1 rounded-full mb-2">
                 Danish Innovation
               </span>
               <p className="text-white text-lg font-medium">
@@ -269,18 +285,18 @@ const CoHousingSection = () => (
               </p>
             </div>
           </div>
-          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-emerald-500 rounded-2xl -z-10"></div>
-          <div className="absolute -top-6 -left-6 w-24 h-24 bg-amber-400 rounded-2xl -z-10"></div>
+          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-forest-500 rounded-2xl -z-10"></div>
+          <div className="absolute -top-6 -left-6 w-24 h-24 bg-golden-400 rounded-2xl -z-10"></div>
         </div>
 
         {/* Content Side */}
         <div>
-          <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wider">Community Design</span>
+          <span className="text-forest-600 font-semibold text-sm uppercase tracking-wider">Community Design</span>
           <h2 className="text-4xl font-bold text-stone-900 mt-2 mb-6">
             The Co-Housing Model
           </h2>
           <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-            Born in Denmark in the 1960s, co-housing represents a revolutionary approach to
+            Born in Denmark in the 1960s, co-housing offers a thoughtful approach to
             community living. Private homes clustered around shared spaces, where neighbors
             become extended family.
           </p>
@@ -305,8 +321,8 @@ const CoHousingSection = () => (
               },
             ].map((item, i) => (
               <div key={i} className="flex gap-4">
-                <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-8 h-8 bg-forest-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-forest-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
@@ -325,10 +341,10 @@ const CoHousingSection = () => (
 
 // Governance Section
 const GovernanceSection = () => (
-  <section id="governance" className="py-24 bg-gradient-to-br from-stone-900 via-stone-800 to-emerald-900">
+  <section id="governance" className="py-24 bg-gradient-to-br from-stone-900 via-stone-800 to-forest-900">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-16">
-        <span className="text-emerald-400 font-semibold text-sm uppercase tracking-wider">Decision Making</span>
+        <span className="text-forest-400 font-semibold text-sm uppercase tracking-wider">Decision Making</span>
         <h2 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-4">
           Consensus-Based Governance
         </h2>
@@ -342,7 +358,7 @@ const GovernanceSection = () => (
         {/* Governance Principles */}
         <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-            <span className="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center">
+            <span className="w-10 h-10 bg-forest-500 rounded-xl flex items-center justify-center">
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
@@ -359,7 +375,7 @@ const GovernanceSection = () => (
               'Transparent communication at all times',
             ].map((principle, i) => (
               <div key={i} className="flex items-center gap-3 text-stone-300">
-                <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                <div className="w-2 h-2 bg-forest-400 rounded-full"></div>
                 <span>{principle}</span>
               </div>
             ))}
@@ -369,7 +385,7 @@ const GovernanceSection = () => (
         {/* Decision Process */}
         <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-            <span className="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center">
+            <span className="w-10 h-10 bg-golden-500 rounded-xl flex items-center justify-center">
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
               </svg>
@@ -384,7 +400,7 @@ const GovernanceSection = () => (
               { step: '4', title: 'Consensus Check', desc: 'Confirm all members can support the decision' },
             ].map((item, i) => (
               <div key={i} className="flex gap-4">
-                <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm">
+                <div className="w-8 h-8 bg-forest-600 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm">
                   {item.step}
                 </div>
                 <div>
@@ -398,18 +414,38 @@ const GovernanceSection = () => (
       </div>
 
       {/* Working Circles */}
-      <div className="bg-gradient-to-r from-emerald-800/50 to-amber-800/50 rounded-3xl p-8 border border-white/10">
+      <div className="bg-gradient-to-r from-forest-800/50 to-golden-800/50 rounded-3xl p-8 border border-white/10">
         <h3 className="text-xl font-bold text-white mb-6 text-center">Working Circles</h3>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {[
-            { name: 'Safety', icon: '🛡️' },
-            { name: 'Education', icon: '📚' },
-            { name: 'Logistics', icon: '🚚' },
-            { name: 'Wellness', icon: '💚' },
-            { name: 'Community', icon: '🤝' },
+            { name: 'Safety', icon: (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            ) },
+            { name: 'Education', icon: (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            ) },
+            { name: 'Logistics', icon: (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            ) },
+            { name: 'Wellness', icon: (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            ) },
+            { name: 'Community', icon: (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            ) },
           ].map((circle, i) => (
-            <div key={i} className="bg-white/10 rounded-xl p-4 text-center hover:bg-white/20 transition-colors">
-              <div className="text-2xl mb-2">{circle.icon}</div>
+            <div key={i} className="bg-white/10 rounded-xl p-4 text-center hover:bg-white/20 transition-colors flex flex-col items-center">
+              <div className="text-white mb-2">{circle.icon}</div>
               <div className="text-white font-medium text-sm">{circle.name}</div>
             </div>
           ))}
@@ -419,18 +455,18 @@ const GovernanceSection = () => (
   </section>
 );
 
-// Safety Section (NASA-style)
+// Safety Section
 const SafetySection = () => (
   <section id="safety" className="py-24 bg-stone-100">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-16">
-        <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wider">Mission Critical</span>
+        <span className="text-forest-600 font-semibold text-sm uppercase tracking-wider">Mission Critical</span>
         <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mt-2 mb-4">
-          NASA-Grade Safety Standards
+          Structured Safety Planning
         </h2>
         <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-          We approach wilderness living with the same rigor NASA applies to space missions.
-          Every system has redundancy. Every risk is assessed. Every person is prepared.
+          Inspired by mission-planning principles, we are designing systems with built-in redundancy.
+          Our goal: thorough risk assessment and preparation for every participant.
         </p>
       </div>
 
@@ -438,14 +474,14 @@ const SafetySection = () => (
       <div className="bg-white rounded-3xl shadow-xl overflow-hidden mb-12">
         <div className="bg-stone-900 p-6">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-forest-500 rounded-xl flex items-center justify-center">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white">Mission Control Structure</h3>
-              <p className="text-stone-400">Dedicated roles ensuring 24/7 operational safety</p>
+              <h3 className="text-xl font-bold text-white">Planned Role Structure</h3>
+              <p className="text-stone-400">Defined roles for coordinated safety and operations</p>
             </div>
           </div>
         </div>
@@ -456,8 +492,8 @@ const SafetySection = () => (
               { role: 'Mission Commander', desc: 'Overall coordination & decisions', color: 'bg-stone-800' },
               { role: 'Safety Officer', desc: 'Risk assessment & protocols', color: 'bg-red-600' },
               { role: 'Medical Officer', desc: 'Health & emergency response', color: 'bg-blue-600' },
-              { role: 'Operations Lead', desc: 'Daily logistics & supplies', color: 'bg-amber-600' },
-              { role: 'Communications', desc: 'External contact & alerts', color: 'bg-emerald-600' },
+              { role: 'Operations Lead', desc: 'Daily logistics & supplies', color: 'bg-golden-600' },
+              { role: 'Communications', desc: 'External contact & alerts', color: 'bg-forest-600' },
             ].map((item, i) => (
               <div key={i} className="text-center">
                 <div className={`w-16 h-16 ${item.color} rounded-2xl mx-auto mb-3 flex items-center justify-center`}>
@@ -476,7 +512,7 @@ const SafetySection = () => (
         {[
           {
             title: 'Redundant Communications',
-            description: 'Satellite phones, emergency beacons, and mesh radio networks ensure we are never truly isolated.',
+            description: 'Planning for satellite phones, emergency beacons, and mesh radio networks to maintain contact in remote areas.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
@@ -485,7 +521,7 @@ const SafetySection = () => (
           },
           {
             title: 'Emergency Protocols',
-            description: 'Detailed response plans for weather, medical, wildlife, and evacuation scenarios. Regular drills ensure readiness.',
+            description: 'Developing detailed response plans for weather, medical, wildlife, and evacuation scenarios, with regular drills planned.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -494,7 +530,7 @@ const SafetySection = () => (
           },
           {
             title: 'Medical Readiness',
-            description: 'On-site medical professionals, comprehensive first aid stations, and evacuation partnerships with local hospitals.',
+            description: 'Planning for on-site medical support, first aid stations, and evacuation partnerships with local healthcare providers.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -503,7 +539,7 @@ const SafetySection = () => (
           },
           {
             title: 'Training & Certification',
-            description: 'All adults complete wilderness first aid, risk assessment, and emergency response training before departure.',
+            description: 'Requiring all adults to complete wilderness first aid, risk assessment, and emergency response training before departure.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -512,7 +548,7 @@ const SafetySection = () => (
           },
           {
             title: 'Daily Check-Ins',
-            description: 'Structured morning briefings and evening debriefs ensure situational awareness and early problem detection.',
+            description: 'Planning for structured morning briefings and evening debriefs to maintain situational awareness and early problem detection.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -521,7 +557,7 @@ const SafetySection = () => (
           },
           {
             title: 'Resource Redundancy',
-            description: 'Critical supplies maintained at 150% of projected needs. Multiple water sources, power systems, and food reserves.',
+            description: 'Planning for backup supplies beyond projected needs, with multiple water sources, power systems, and food reserves.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -583,7 +619,7 @@ const DashboardSection = ({ showDashboard, setShowDashboard }) => (
   <section id="dashboard" className="py-24 bg-stone-900">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12">
-        <span className="text-emerald-400 font-semibold text-sm uppercase tracking-wider">Transparency</span>
+        <span className="text-forest-400 font-semibold text-sm uppercase tracking-wider">Transparency</span>
         <h2 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-4">
           Mission Progress Dashboard
         </h2>
@@ -594,7 +630,7 @@ const DashboardSection = ({ showDashboard, setShowDashboard }) => (
 
         <button
           onClick={() => setShowDashboard(!showDashboard)}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-full transition-all duration-200"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-forest-600 hover:bg-forest-500 text-white font-semibold rounded-full transition-all duration-200"
         >
           {showDashboard ? 'Hide Dashboard' : 'View Live Dashboard'}
           <svg className={`w-5 h-5 transition-transform ${showDashboard ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -615,8 +651,8 @@ const DashboardSection = ({ showDashboard, setShowDashboard }) => (
             <div key={i} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <div className="text-3xl font-bold text-white">{item.value}</div>
               <div className="text-stone-400">{item.label}</div>
-              <div className="mt-2 inline-flex items-center gap-1.5 text-emerald-400 text-sm">
-                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+              <div className="mt-2 inline-flex items-center gap-1.5 text-forest-400 text-sm">
+                <span className="w-1.5 h-1.5 bg-forest-400 rounded-full animate-pulse"></span>
                 {item.status}
               </div>
             </div>
@@ -636,7 +672,7 @@ const DashboardSection = ({ showDashboard, setShowDashboard }) => (
 
 // Open Source Section
 const OpenSourceSection = () => (
-  <section className="py-24 bg-gradient-to-br from-emerald-800 to-emerald-900">
+  <section className="py-24 bg-gradient-to-br from-forest-800 to-forest-900">
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8">
         <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -647,7 +683,7 @@ const OpenSourceSection = () => (
       <h2 className="text-4xl font-bold text-white mb-4">
         100% Open Source
       </h2>
-      <p className="text-xl text-emerald-100 mb-8 leading-relaxed">
+      <p className="text-xl text-forest-100 mb-8 leading-relaxed">
         Every plan, every decision, every research finding is published openly on GitHub.
         We believe radical transparency builds trust and enables collaboration.
       </p>
@@ -682,7 +718,7 @@ const OpenSourceSection = () => (
         ].map((stat, i) => (
           <div key={i}>
             <div className="text-2xl font-bold text-white">{stat.value}</div>
-            <div className="text-emerald-200 text-sm">{stat.label}</div>
+            <div className="text-forest-200 text-sm">{stat.label}</div>
           </div>
         ))}
       </div>
@@ -697,7 +733,7 @@ const JoinSection = () => (
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         {/* Content */}
         <div>
-          <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wider">Get Involved</span>
+          <span className="text-forest-600 font-semibold text-sm uppercase tracking-wider">Get Involved</span>
           <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mt-2 mb-6">
             Join the Adventure
           </h2>
@@ -715,7 +751,7 @@ const JoinSection = () => (
               { title: 'Contributors', desc: 'Help with research, design, or development' },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm">
-                <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 font-bold">
+                <div className="w-10 h-10 bg-forest-100 rounded-full flex items-center justify-center text-forest-600 font-bold">
                   {i + 1}
                 </div>
                 <div>
@@ -736,7 +772,7 @@ const JoinSection = () => (
                 <label className="block text-sm font-medium text-stone-700 mb-2">First Name</label>
                 <input
                   type="text"
-                  className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-forest-500 focus:ring-2 focus:ring-forest-200 outline-none transition-all"
                   placeholder="Your first name"
                 />
               </div>
@@ -744,7 +780,7 @@ const JoinSection = () => (
                 <label className="block text-sm font-medium text-stone-700 mb-2">Last Name</label>
                 <input
                   type="text"
-                  className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-forest-500 focus:ring-2 focus:ring-forest-200 outline-none transition-all"
                   placeholder="Your last name"
                 />
               </div>
@@ -753,13 +789,13 @@ const JoinSection = () => (
               <label className="block text-sm font-medium text-stone-700 mb-2">Email</label>
               <input
                 type="email"
-                className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-forest-500 focus:ring-2 focus:ring-forest-200 outline-none transition-all"
                 placeholder="you@example.com"
               />
             </div>
             <div>
               <label className="block text-sm font-medium text-stone-700 mb-2">I am interested as...</label>
-              <select className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all bg-white">
+              <select className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-forest-500 focus:ring-2 focus:ring-forest-200 outline-none transition-all bg-white">
                 <option>Select your interest</option>
                 <option>A family wanting to participate</option>
                 <option>An expert/advisor</option>
@@ -772,13 +808,13 @@ const JoinSection = () => (
               <label className="block text-sm font-medium text-stone-700 mb-2">Message (Optional)</label>
               <textarea
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-forest-500 focus:ring-2 focus:ring-forest-200 outline-none transition-all resize-none"
                 placeholder="Tell us about yourself and your interest in Wild Year..."
               ></textarea>
             </div>
             <button
               type="submit"
-              className="w-full py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-emerald-900/20"
+              className="w-full py-4 bg-gradient-to-r from-forest-600 to-forest-700 hover:from-forest-500 hover:to-forest-600 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-forest-900/20"
             >
               Submit Interest
             </button>
@@ -800,9 +836,25 @@ const Footer = () => (
         {/* Brand */}
         <div className="md:col-span-2">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-forest-500 to-forest-700 rounded-full flex items-center justify-center">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                {/* Waldorf-style hand-drawn tree - organic, flowing curves */}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M12 4c-3.5 0.3-6 2.8-5.5 6.2 0.3 2.2 2 3.8 4 4.5M12 4c3.5 0.3 6 2.8 5.5 6.2-0.3 2.2-2 3.8-4 4.5"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeWidth={2}
+                  d="M12 14.5c0.2 2.5-0.1 4.5 0 6.5"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeWidth={1.5}
+                  d="M9 21c1-0.8 2-1 3-1s2 0.2 3 1"
+                />
               </svg>
             </div>
             <span className="text-xl font-bold text-white">Wild Year</span>
