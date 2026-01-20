@@ -8,106 +8,106 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Waldorf-inspired color palette
-        // Warm, muted earth tones like watercolors and natural pigments
+        // Magus of Potatoes Color Palette
+        // Rich, earthy tones inspired by nature and warmth
 
-        // Warm cream/off-white (replaces stark white)
-        cream: {
-          50: '#FFFDFB',
-          100: '#FDF8F3',
-          200: '#F5EFE6',
-          300: '#EDE5D8',
-          400: '#E2D6C4',
-          500: '#D4C4AD',
-          600: '#C4B096',
-          700: '#A89578',
-          800: '#8A7A62',
-          900: '#6B5F4D',
-          950: '#4A4235',
+        // Muted forest green (#5c8170 base)
+        forest: {
+          50: '#f2f5f4',
+          100: '#e4ebe8',
+          200: '#c9d7d1',
+          300: '#a8bfb5',
+          400: '#7fa393',
+          500: '#5c8170', // Original color
+          600: '#4a6a5c',
+          700: '#3d574b',
+          800: '#33473e',
+          900: '#2b3b34',
+          950: '#16201c',
         },
-        // Soft rose/pink tones
-        rose: {
-          50: '#FDF6F6',
-          100: '#F8EDED',
-          200: '#F0DCDC',
-          300: '#E8C4C4',
-          400: '#DCADAD',
-          500: '#D4A5A5',
-          600: '#C48B8B',
-          700: '#A86E6E',
-          800: '#8B5858',
-          900: '#6E4545',
-          950: '#4A2F2F',
-        },
-        // Soft sage green (muted, not bright)
-        sage: {
-          50: '#F5F7F3',
-          100: '#EAF0E6',
-          200: '#D8E2D0',
-          300: '#C4D4B8',
-          400: '#B4C4A5',
-          500: '#9CAF88',
-          600: '#839470',
-          700: '#6B785C',
-          800: '#565F4B',
-          900: '#434A3B',
-          950: '#2E332A',
-        },
-        // Golden yellow/ochre
-        golden: {
-          50: '#FDFAF2',
-          100: '#FAF3E0',
-          200: '#F2E5C4',
-          300: '#E5C287',
-          400: '#D9B26A',
-          500: '#D4A84B',
-          600: '#B8923D',
-          700: '#967632',
-          800: '#745B28',
-          900: '#5A4720',
-          950: '#3D3018',
-        },
-        // Warm terracotta/earth brown
+        // Warm terracotta/tan (#bd8962 base)
         terracotta: {
-          50: '#FAF6F2',
-          100: '#F2EBE2',
-          200: '#E5D6C4',
-          300: '#D4BCA0',
-          400: '#C4A484',
-          500: '#B08968',
-          600: '#96724F',
-          700: '#7A5C40',
-          800: '#5D4E37',
-          900: '#4A3E2C',
-          950: '#3D3229',
+          50: '#faf6f3',
+          100: '#f3ebe4',
+          200: '#e8d5c7',
+          300: '#d9b9a3',
+          400: '#bd8962', // Original color
+          500: '#b07a54',
+          600: '#a36847',
+          700: '#87543c',
+          800: '#6f4635',
+          900: '#5b3b2e',
+          950: '#301d17',
         },
-        // Soft blue (gentle, not saturated)
-        softblue: {
-          50: '#F5F7FA',
-          100: '#EBF0F5',
-          200: '#D8E2ED',
-          300: '#C4D4E2',
-          400: '#A5B4C4',
-          500: '#8FA5B5',
-          600: '#728A9C',
-          700: '#5C7080',
-          800: '#4A5A66',
-          900: '#3B4750',
-          950: '#2A3238',
+        // Deep burgundy/rust red (#941e02 base)
+        burgundy: {
+          50: '#fef4f2',
+          100: '#fee7e2',
+          200: '#fdd3ca',
+          300: '#fbb4a5',
+          400: '#f68771',
+          500: '#eb5b43',
+          600: '#d83f25',
+          700: '#b5311a',
+          800: '#941e02', // Original color
+          900: '#7b2013',
+          950: '#430c05',
         },
-        // Deep earth brown (replaces stark black)
+        // Burnt orange/sienna (#a45d25 base)
+        sienna: {
+          50: '#fdf6ef',
+          100: '#faead9',
+          200: '#f4d3b2',
+          300: '#ecb481',
+          400: '#e28d4e',
+          500: '#d97228',
+          600: '#a45d25', // Original color
+          700: '#a34a1c',
+          800: '#863c1c',
+          900: '#6d331a',
+          950: '#3b180b',
+        },
+        // Golden yellow/ochre (#d8a647 base)
+        golden: {
+          50: '#fdfaef',
+          100: '#faf2d1',
+          200: '#f4e29f',
+          300: '#edce6c',
+          400: '#d8a647', // Original color
+          500: '#de9d25',
+          600: '#c57b1a',
+          700: '#a45b18',
+          800: '#86481b',
+          900: '#6f3c19',
+          950: '#401e0a',
+        },
+        // Warm cream (complementary neutral)
+        cream: {
+          50: '#fefdfb',
+          100: '#fcf8f3',
+          200: '#f8f0e5',
+          300: '#f2e5d4',
+          400: '#e8d5be',
+          500: '#dbc4a6',
+          600: '#c4a985',
+          700: '#a68b67',
+          800: '#886f52',
+          900: '#6f5b44',
+          950: '#3b2f23',
+        },
+        // Deep earth (dark neutral, replaces black)
         earth: {
-          50: '#F8F6F4',
-          100: '#EDE9E4',
-          200: '#DBD4CC',
-          300: '#C4BAA8',
-          400: '#A89882',
-          500: '#8B7A64',
-          600: '#6E6050',
-          700: '#5D4E37',
-          800: '#4A3E2C',
-          900: '#3D3229',
-          950: '#2A231D',
+          50: '#f7f6f5',
+          100: '#edebe8',
+          200: '#d9d5d0',
+          300: '#c1bab2',
+          400: '#a59b8f',
+          500: '#8f8275',
+          600: '#7a6d62',
+          700: '#635851',
+          800: '#534a44',
+          900: '#47403b',
+          950: '#27231f',
         },
       },
       fontFamily: {
@@ -127,16 +127,17 @@ export default {
         '5xl': '2.5rem',
       },
       boxShadow: {
-        'earth': '0 4px 20px -2px rgba(93, 78, 55, 0.15)',
-        'sage': '0 4px 20px -2px rgba(156, 175, 136, 0.2)',
-        'rose': '0 4px 20px -2px rgba(212, 165, 165, 0.2)',
-        'golden': '0 4px 20px -2px rgba(212, 168, 75, 0.15)',
-        'glass': '0 8px 32px -4px rgba(61, 50, 41, 0.1)',
-        'waldorf': '0 4px 24px -4px rgba(93, 78, 55, 0.12)',
+        'forest': '0 4px 20px -2px rgba(92, 129, 112, 0.2)',
+        'terracotta': '0 4px 20px -2px rgba(189, 137, 98, 0.2)',
+        'burgundy': '0 4px 20px -2px rgba(148, 30, 2, 0.15)',
+        'sienna': '0 4px 20px -2px rgba(164, 93, 37, 0.2)',
+        'golden': '0 4px 20px -2px rgba(216, 166, 71, 0.2)',
+        'glass': '0 8px 32px -4px rgba(39, 35, 31, 0.1)',
+        'magus': '0 4px 24px -4px rgba(92, 129, 112, 0.15)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'earth-texture': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+        'earth-texture': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235c8170' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
@@ -155,9 +156,9 @@ export default {
             maxWidth: '65ch',
             color: 'inherit',
             a: {
-              color: '#9CAF88', // sage-500
+              color: '#5c8170', // forest-500
               '&:hover': {
-                color: '#6B785C', // sage-700
+                color: '#3d574b', // forest-700
               },
             },
           },
