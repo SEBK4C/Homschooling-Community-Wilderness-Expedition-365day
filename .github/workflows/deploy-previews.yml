@@ -33,7 +33,6 @@ jobs:
         id: branch
         run: |
           BRANCH_NAME="${GITHUB_REF_NAME}"
-          # Convert branch name to folder-safe name
           if [[ "$BRANCH_NAME" == "main" ]]; then
             FOLDER_NAME="main"
           elif [[ "$BRANCH_NAME" == *"waldorf"* ]] || [[ "$BRANCH_NAME" == *"wilderness-cohousing"* ]]; then
@@ -48,7 +47,6 @@ jobs:
 
       - name: Build for subfolder
         run: |
-          # Update vite base path for subfolder deployment
           npm run build -- --base=/${{ steps.branch.outputs.folder }}/
         env:
           NODE_ENV: production
@@ -60,6 +58,7 @@ jobs:
           publish_dir: ./dist
           destination_dir: ${{ steps.branch.outputs.folder }}
           keep_files: true
+          cname: wildyear.one
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: 'Deploy ${{ steps.branch.outputs.folder }} preview'
@@ -217,10 +216,14 @@ jobs:
           </html>
           EOF
 
-      - name: Commit index page
+      - name: Ensure CNAME file exists
+        run: |
+          echo "wildyear.one" > CNAME
+
+      - name: Commit index page and CNAME
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add index.html
+          git add index.html CNAME
           git diff --staged --quiet || git commit -m 'Update A/B test index page'
           git push
