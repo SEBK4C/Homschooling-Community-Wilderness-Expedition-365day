@@ -16,60 +16,80 @@
     @apply antialiased;
   }
 
-  /* Earthy Color Accents */
+  /* Waldorf Color Accents - soft, natural selection */
   ::selection {
-    @apply bg-emerald-200 text-emerald-900;
+    @apply bg-rose-200 text-earth-900;
   }
 
-  /* Custom Scrollbar */
+  /* Custom Scrollbar - warm earth tones */
   ::-webkit-scrollbar {
     width: 10px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-stone-100;
+    @apply bg-cream-100;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-stone-400 rounded-full;
+    @apply bg-terracotta-400 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-stone-500;
+    @apply bg-terracotta-500;
   }
 }
 
 /* Component Styles */
 @layer components {
-  /* Earthy gradient backgrounds */
+  /* Waldorf-inspired gradient backgrounds - soft, watercolor-like */
   .bg-earth-gradient {
-    background: linear-gradient(135deg, #1c1917 0%, #292524 50%, #1a3a2f 100%);
+    background: linear-gradient(135deg, #3D3229 0%, #5D4E37 50%, #4A3E2C 100%);
   }
 
-  .bg-forest-gradient {
-    background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+  .bg-sage-gradient {
+    background: linear-gradient(135deg, #6B785C 0%, #839470 50%, #9CAF88 100%);
   }
 
-  .bg-savannah-gradient {
-    background: linear-gradient(135deg, #78350f 0%, #92400e 50%, #b45309 100%);
+  .bg-golden-gradient {
+    background: linear-gradient(135deg, #967632 0%, #B8923D 50%, #D4A84B 100%);
   }
 
-  /* Glassmorphism effects */
+  .bg-rose-gradient {
+    background: linear-gradient(135deg, #A86E6E 0%, #C48B8B 50%, #D4A5A5 100%);
+  }
+
+  .bg-cream-gradient {
+    background: linear-gradient(135deg, #F5EFE6 0%, #FDF8F3 50%, #EDE5D8 100%);
+  }
+
+  .bg-waldorf-warm {
+    background: linear-gradient(135deg, #FDF8F3 0%, #F8EDED 50%, #FAF3E0 100%);
+  }
+
+  /* Glassmorphism effects - warm Waldorf tones */
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
+    @apply bg-cream-100/20 backdrop-blur-md border border-cream-300/30;
   }
 
   .glass-dark {
-    @apply bg-stone-900/80 backdrop-blur-md border border-stone-700/50;
+    @apply bg-earth-900/80 backdrop-blur-md border border-earth-700/50;
   }
 
-  /* Text gradients */
+  /* Text gradients - soft, natural Waldorf colors */
   .text-gradient-earth {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-amber-400 to-orange-400;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-sage-500 via-golden-400 to-terracotta-400;
   }
 
-  .text-gradient-forest {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400;
+  .text-gradient-sage {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-sage-500 to-sage-700;
+  }
+
+  .text-gradient-rose {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-600;
+  }
+
+  .text-gradient-golden {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-golden-400 to-golden-600;
   }
 
   /* Hover effects */
@@ -77,22 +97,34 @@
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
   }
 
-  /* Card styles */
+  /* Card styles - warm Waldorf aesthetic */
   .card-earth {
-    @apply bg-white rounded-2xl shadow-sm border border-stone-100 hover:shadow-lg transition-shadow duration-300;
+    @apply bg-cream-50 rounded-2xl shadow-waldorf border border-cream-200 hover:shadow-lg transition-shadow duration-300;
   }
 
-  /* Button variants */
+  .card-waldorf {
+    @apply bg-cream-100 rounded-2xl shadow-waldorf border border-cream-300 hover:shadow-earth transition-shadow duration-300;
+  }
+
+  /* Button variants - soft, natural Waldorf colors */
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-semibold rounded-full transition-all duration-200 shadow-lg shadow-emerald-900/30 hover:shadow-xl hover:shadow-emerald-900/40 hover:-translate-y-0.5;
+    @apply px-6 py-3 bg-gradient-to-r from-sage-600 to-sage-700 hover:from-sage-500 hover:to-sage-600 text-cream-50 font-semibold rounded-full transition-all duration-200 shadow-lg shadow-sage-700/30 hover:shadow-xl hover:shadow-sage-700/40 hover:-translate-y-0.5;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold rounded-full border border-white/20 transition-all duration-200;
+    @apply px-6 py-3 bg-cream-100/20 hover:bg-cream-100/40 backdrop-blur-sm text-cream-50 font-semibold rounded-full border border-cream-200/30 transition-all duration-200;
   }
 
   .btn-outline {
-    @apply px-6 py-3 bg-transparent hover:bg-stone-100 text-stone-800 font-semibold rounded-full border-2 border-stone-800 transition-all duration-200;
+    @apply px-6 py-3 bg-transparent hover:bg-cream-100 text-earth-800 font-semibold rounded-full border-2 border-earth-700 transition-all duration-200;
+  }
+
+  .btn-rose {
+    @apply px-6 py-3 bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-400 hover:to-rose-500 text-cream-50 font-semibold rounded-full transition-all duration-200 shadow-lg shadow-rose-600/30 hover:shadow-xl hover:shadow-rose-600/40 hover:-translate-y-0.5;
+  }
+
+  .btn-golden {
+    @apply px-6 py-3 bg-gradient-to-r from-golden-500 to-golden-600 hover:from-golden-400 hover:to-golden-500 text-earth-900 font-semibold rounded-full transition-all duration-200 shadow-lg shadow-golden-600/30 hover:shadow-xl hover:shadow-golden-600/40 hover:-translate-y-0.5;
   }
 }
 
@@ -171,13 +203,13 @@ img:not([loading]) {
   opacity: 1;
 }
 
-/* Focus styles for accessibility */
+/* Focus styles for accessibility - warm Waldorf tones */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  @apply outline-none ring-2 ring-emerald-500 ring-offset-2;
+  @apply outline-none ring-2 ring-sage-500 ring-offset-2 ring-offset-cream-50;
 }
 
 /* Print styles */

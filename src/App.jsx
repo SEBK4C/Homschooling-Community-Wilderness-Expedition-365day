@@ -30,7 +30,23 @@ const Navigation = ({ activeSection, onNavigate }) => {
           <a href="#" className="flex items-center gap-3 group">
             <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full flex items-center justify-center">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                {/* Waldorf-style hand-drawn tree - organic, flowing curves */}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M12 4c-3.5 0.3-6 2.8-5.5 6.2 0.3 2.2 2 3.8 4 4.5M12 4c3.5 0.3 6 2.8 5.5 6.2-0.3 2.2-2 3.8-4 4.5"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeWidth={2}
+                  d="M12 14.5c0.2 2.5-0.1 4.5 0 6.5"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeWidth={1.5}
+                  d="M9 21c1-0.8 2-1 3-1s2 0.2 3 1"
+                />
               </svg>
             </div>
             <span className="text-xl font-bold text-white tracking-tight">Wild Year</span>
@@ -255,8 +271,8 @@ const CoHousingSection = () => (
         <div className="relative">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <img
-              src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1600&auto=format&fit=crop"
-              alt="Scandinavian community living"
+              src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=1600&auto=format&fit=crop"
+              alt="Nordic forest cabin community"
               className="w-full h-[500px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent"></div>
@@ -280,7 +296,7 @@ const CoHousingSection = () => (
             The Co-Housing Model
           </h2>
           <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-            Born in Denmark in the 1960s, co-housing represents a revolutionary approach to
+            Born in Denmark in the 1960s, co-housing offers a thoughtful approach to
             community living. Private homes clustered around shared spaces, where neighbors
             become extended family.
           </p>
@@ -402,14 +418,34 @@ const GovernanceSection = () => (
         <h3 className="text-xl font-bold text-white mb-6 text-center">Working Circles</h3>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {[
-            { name: 'Safety', icon: '🛡️' },
-            { name: 'Education', icon: '📚' },
-            { name: 'Logistics', icon: '🚚' },
-            { name: 'Wellness', icon: '💚' },
-            { name: 'Community', icon: '🤝' },
+            { name: 'Safety', icon: (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            ) },
+            { name: 'Education', icon: (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            ) },
+            { name: 'Logistics', icon: (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            ) },
+            { name: 'Wellness', icon: (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            ) },
+            { name: 'Community', icon: (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            ) },
           ].map((circle, i) => (
-            <div key={i} className="bg-white/10 rounded-xl p-4 text-center hover:bg-white/20 transition-colors">
-              <div className="text-2xl mb-2">{circle.icon}</div>
+            <div key={i} className="bg-white/10 rounded-xl p-4 text-center hover:bg-white/20 transition-colors flex flex-col items-center">
+              <div className="text-white mb-2">{circle.icon}</div>
               <div className="text-white font-medium text-sm">{circle.name}</div>
             </div>
           ))}
@@ -419,18 +455,18 @@ const GovernanceSection = () => (
   </section>
 );
 
-// Safety Section (NASA-style)
+// Safety Section
 const SafetySection = () => (
   <section id="safety" className="py-24 bg-stone-100">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-16">
         <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wider">Mission Critical</span>
         <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mt-2 mb-4">
-          NASA-Grade Safety Standards
+          Structured Safety Planning
         </h2>
         <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-          We approach wilderness living with the same rigor NASA applies to space missions.
-          Every system has redundancy. Every risk is assessed. Every person is prepared.
+          Inspired by mission-planning principles, we are designing systems with built-in redundancy.
+          Our goal: thorough risk assessment and preparation for every participant.
         </p>
       </div>
 
@@ -444,8 +480,8 @@ const SafetySection = () => (
               </svg>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white">Mission Control Structure</h3>
-              <p className="text-stone-400">Dedicated roles ensuring 24/7 operational safety</p>
+              <h3 className="text-xl font-bold text-white">Planned Role Structure</h3>
+              <p className="text-stone-400">Defined roles for coordinated safety and operations</p>
             </div>
           </div>
         </div>
@@ -476,7 +512,7 @@ const SafetySection = () => (
         {[
           {
             title: 'Redundant Communications',
-            description: 'Satellite phones, emergency beacons, and mesh radio networks ensure we are never truly isolated.',
+            description: 'Planning for satellite phones, emergency beacons, and mesh radio networks to maintain contact in remote areas.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
@@ -485,7 +521,7 @@ const SafetySection = () => (
           },
           {
             title: 'Emergency Protocols',
-            description: 'Detailed response plans for weather, medical, wildlife, and evacuation scenarios. Regular drills ensure readiness.',
+            description: 'Developing detailed response plans for weather, medical, wildlife, and evacuation scenarios, with regular drills planned.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -494,7 +530,7 @@ const SafetySection = () => (
           },
           {
             title: 'Medical Readiness',
-            description: 'On-site medical professionals, comprehensive first aid stations, and evacuation partnerships with local hospitals.',
+            description: 'Planning for on-site medical support, first aid stations, and evacuation partnerships with local healthcare providers.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -503,7 +539,7 @@ const SafetySection = () => (
           },
           {
             title: 'Training & Certification',
-            description: 'All adults complete wilderness first aid, risk assessment, and emergency response training before departure.',
+            description: 'Requiring all adults to complete wilderness first aid, risk assessment, and emergency response training before departure.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -512,7 +548,7 @@ const SafetySection = () => (
           },
           {
             title: 'Daily Check-Ins',
-            description: 'Structured morning briefings and evening debriefs ensure situational awareness and early problem detection.',
+            description: 'Planning for structured morning briefings and evening debriefs to maintain situational awareness and early problem detection.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -521,7 +557,7 @@ const SafetySection = () => (
           },
           {
             title: 'Resource Redundancy',
-            description: 'Critical supplies maintained at 150% of projected needs. Multiple water sources, power systems, and food reserves.',
+            description: 'Planning for backup supplies beyond projected needs, with multiple water sources, power systems, and food reserves.',
             icon: (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -802,7 +838,23 @@ const Footer = () => (
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full flex items-center justify-center">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                {/* Waldorf-style hand-drawn tree - organic, flowing curves */}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M12 4c-3.5 0.3-6 2.8-5.5 6.2 0.3 2.2 2 3.8 4 4.5M12 4c3.5 0.3 6 2.8 5.5 6.2-0.3 2.2-2 3.8-4 4.5"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeWidth={2}
+                  d="M12 14.5c0.2 2.5-0.1 4.5 0 6.5"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeWidth={1.5}
+                  d="M9 21c1-0.8 2-1 3-1s2 0.2 3 1"
+                />
               </svg>
             </div>
             <span className="text-xl font-bold text-white">Wild Year</span>
