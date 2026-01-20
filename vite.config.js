@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Homschooling-Community-Wilderness-Expedition-365day/',
+  base: '/', // Use root path for custom domain (wildyear.one)
   build: {
     outDir: 'dist'
   }
