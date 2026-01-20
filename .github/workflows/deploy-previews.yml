@@ -1,0 +1,226 @@
+name: Deploy A/B Test Previews
+
+on:
+  push:
+    branches:
+      - main
+      - 'claude/wilderness-cohousing-website-*'
+      - 'claude/magus-potatoes-palette-*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Determine branch folder name
+        id: branch
+        run: |
+          BRANCH_NAME="${GITHUB_REF_NAME}"
+          # Convert branch name to folder-safe name
+          if [[ "$BRANCH_NAME" == "main" ]]; then
+            FOLDER_NAME="main"
+          elif [[ "$BRANCH_NAME" == *"waldorf"* ]] || [[ "$BRANCH_NAME" == *"wilderness-cohousing"* ]]; then
+            FOLDER_NAME="palette-a-waldorf"
+          elif [[ "$BRANCH_NAME" == *"magus"* ]]; then
+            FOLDER_NAME="palette-b-magus"
+          else
+            FOLDER_NAME=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9]/-/g')
+          fi
+          echo "folder=$FOLDER_NAME" >> $GITHUB_OUTPUT
+          echo "Deploying to folder: $FOLDER_NAME"
+
+      - name: Build for subfolder
+        run: |
+          # Update vite base path for subfolder deployment
+          npm run build -- --base=/${{ steps.branch.outputs.folder }}/
+        env:
+          NODE_ENV: production
+
+      - name: Deploy to GitHub Pages subfolder
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          destination_dir: ${{ steps.branch.outputs.folder }}
+          keep_files: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy ${{ steps.branch.outputs.folder }} preview'
+
+  create-index:
+    runs-on: ubuntu-latest
+    needs: build-and-deploy
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+
+      - name: Create index page for A/B testing
+        run: |
+          cat > index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Wild Year - A/B Test Previews</title>
+            <style>
+              * { margin: 0; padding: 0; box-sizing: border-box; }
+              body {
+                font-family: 'Inter', system-ui, sans-serif;
+                background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem;
+              }
+              .container {
+                max-width: 800px;
+                width: 100%;
+              }
+              h1 {
+                color: #fafaf9;
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+                text-align: center;
+              }
+              .subtitle {
+                color: #a8a29e;
+                text-align: center;
+                margin-bottom: 3rem;
+                font-size: 1.1rem;
+              }
+              .cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1.5rem;
+              }
+              .card {
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 1.5rem;
+                padding: 2rem;
+                text-decoration: none;
+                transition: all 0.3s ease;
+              }
+              .card:hover {
+                background: rgba(255,255,255,0.1);
+                transform: translateY(-4px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+              }
+              .card h2 {
+                color: #fafaf9;
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+              }
+              .card p {
+                color: #a8a29e;
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+              }
+              .card .colors {
+                display: flex;
+                gap: 0.5rem;
+                margin-bottom: 1rem;
+              }
+              .card .color {
+                width: 2rem;
+                height: 2rem;
+                border-radius: 0.5rem;
+                border: 2px solid rgba(255,255,255,0.2);
+              }
+              .card .btn {
+                display: inline-block;
+                background: linear-gradient(135deg, #5c8170, #4a6a5c);
+                color: white;
+                padding: 0.75rem 1.5rem;
+                border-radius: 9999px;
+                font-weight: 600;
+                font-size: 0.875rem;
+              }
+              .card.waldorf .btn {
+                background: linear-gradient(135deg, #9CAF88, #6B785C);
+              }
+              .card.magus .btn {
+                background: linear-gradient(135deg, #5c8170, #3d574b);
+              }
+              .footer {
+                text-align: center;
+                margin-top: 3rem;
+                color: #78716c;
+                font-size: 0.875rem;
+              }
+              .footer a {
+                color: #a8a29e;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <h1>Wild Year Previews</h1>
+              <p class="subtitle">Compare color palettes for the wilderness expedition website</p>
+
+              <div class="cards">
+                <a href="./palette-a-waldorf/" class="card waldorf">
+                  <h2>Palette A: Waldorf</h2>
+                  <p>Soft, muted tones inspired by watercolors and natural pigments. Gentle sage greens and warm creams.</p>
+                  <div class="colors">
+                    <div class="color" style="background: #9CAF88;"></div>
+                    <div class="color" style="background: #E8C4C4;"></div>
+                    <div class="color" style="background: #E5C287;"></div>
+                    <div class="color" style="background: #C4A484;"></div>
+                    <div class="color" style="background: #5D4E37;"></div>
+                  </div>
+                  <span class="btn">View Waldorf Palette</span>
+                </a>
+
+                <a href="./palette-b-magus/" class="card magus">
+                  <h2>Palette B: Magus of Potatoes</h2>
+                  <p>Rich, earthy tones with deeper saturation. Forest greens, burgundy accents, and golden ochres.</p>
+                  <div class="colors">
+                    <div class="color" style="background: #5c8170;"></div>
+                    <div class="color" style="background: #bd8962;"></div>
+                    <div class="color" style="background: #941e02;"></div>
+                    <div class="color" style="background: #a45d25;"></div>
+                    <div class="color" style="background: #d8a647;"></div>
+                  </div>
+                  <span class="btn">View Magus Palette</span>
+                </a>
+              </div>
+
+              <div class="footer">
+                <p>Open source on <a href="https://github.com/SEBK4C/Homschooling-Community-Wilderness-Expedition-365day">GitHub</a></p>
+              </div>
+            </div>
+          </body>
+          </html>
+          EOF
+
+      - name: Commit index page
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git diff --staged --quiet || git commit -m 'Update A/B test index page'
+          git push
