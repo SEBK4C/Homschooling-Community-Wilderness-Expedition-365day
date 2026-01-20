@@ -1,8 +1,9 @@
 {
-  "name": "project-tracker-dashboard",
+  "name": "wild-year-expedition",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
-  "homepage": "https://<your-username>.github.io/Homschooling-Community-Wilderness-Expedition-365day",
+  "homepage": "https://wildyear.one",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
